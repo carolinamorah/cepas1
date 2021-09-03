@@ -2,6 +2,8 @@ class Wine < ApplicationRecord
     has_many :wine_strains, dependent: :destroy
     has_many :strains, through: :wine_strains
     
+    validates :name, presence: true
+    
     def addStrainPercent(percents)
         percents.each do |strain_id, percent|
             if percent != ''
